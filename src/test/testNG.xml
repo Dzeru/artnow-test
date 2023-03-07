@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suite">
+    <test name="First">
+        <classes>
+            <class name="com.dzeru.artnowtest.FirstTest"/>
+        </classes>
+    </test>
+</suite>
