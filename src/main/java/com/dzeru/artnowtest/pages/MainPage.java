@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class PageObjectMain extends BasePage {
+public class MainPage extends BasePage {
 
-    public PageObjectMain(WebDriver webDriver) {
+    public MainPage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public PageObjectMain() {
+    public MainPage() {
         super();
     }
 
@@ -23,7 +23,6 @@ public class PageObjectMain extends BasePage {
 
     @Step("Click on art category menu item")
     public void clickOnArtCategoryMenuItem(String menuItemName) {
-        System.out.println("Getting " + menuItemName);
         WebElement menuItemList = getWebDriver().findElement(By.xpath(ART_CATEGORY_MENU_ITEM_LIST_XPATH));
         WebElement menuItem = menuItemList.findElement(By.xpath(String.format(ART_CATEGORY_MENU_ITEM_XPATH_TEMPLATE, menuItemName)));
         waitForElementClickable(menuItem);

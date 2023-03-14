@@ -1,20 +1,20 @@
 package com.dzeru.artnowtest;
 
-import com.dzeru.artnowtest.listeners.TestFailureListener;
-import com.dzeru.artnowtest.pages.MainPage;
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
+import com.dzeru.artnowtest.listeners.TestFailureListener;
 import com.dzeru.artnowtest.pages.CatalogPage;
+import com.dzeru.artnowtest.pages.MainPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /**
- * 2.1
+ * 2.2
  * Перейти в "Вышитые картины", произвести поиск по жанру
- * "Городской пейзаж", проверить, что картина "Трамвайный путь"
- * присутствует в выдаче.
+ * "Городской пейзаж", открыть подробности картины "Трамвайный путь",
+ * проверить, что стиль картины "Реализм".
  */
 @Listeners({TestFailureListener.class})
-public class FirstTest extends SupportTestConfiguration {
+public class SecondTest extends SupportTestConfiguration {
 
     @Test
     public void checkArtNameTramWay() {
@@ -25,5 +25,6 @@ public class FirstTest extends SupportTestConfiguration {
         catalogPage.clickOnGenreShowMoreButton();
         catalogPage.chooseGenre("Городской пейзаж");
         catalogPage.checkArtName("Трамвайный путь");
+        catalogPage.clickOnArtItem("Трамвайный путь");
     }
 }
