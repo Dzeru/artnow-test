@@ -1,6 +1,6 @@
 package com.dzeru.artnowtest.pages;
 
-import com.dzeru.artnowtest.utils.SupportTestSettings;
+import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,10 +20,10 @@ public abstract class BasePage {
     }
 
     protected void waitForElementVisible(WebElement webElement) {
-        new WebDriverWait(webDriver, SupportTestSettings.webDriverWaitTimeout).until(ExpectedConditions.visibilityOf(webElement));
+        new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void waitForElementClickable(WebElement webElement) {
-        new WebDriverWait(webDriver, SupportTestSettings.webDriverWaitTimeout).until(ExpectedConditions.elementToBeClickable(webElement));
+        new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }

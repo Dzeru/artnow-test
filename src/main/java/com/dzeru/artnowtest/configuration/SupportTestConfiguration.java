@@ -1,6 +1,7 @@
-package com.dzeru.artnowtest.utils;
+package com.dzeru.artnowtest.configuration;
 
 import com.dzeru.artnowtest.listeners.WebDriverEventListener;
+import com.dzeru.artnowtest.utils.Browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,7 +16,7 @@ import java.util.Properties;
 
 import static com.dzeru.artnowtest.utils.Constants.*;
 
-public abstract class SupportTestSettings {
+public abstract class SupportTestConfiguration {
 
     public static WebDriver driver;
     public static WebDriverWait webDriverWait;

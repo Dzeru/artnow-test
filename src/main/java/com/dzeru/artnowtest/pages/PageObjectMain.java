@@ -18,7 +18,8 @@ public class PageObjectMain extends BasePage {
     private final String ART_CATEGORY_MENU_ITEM_LIST_XPATH = "//*[@id=\"left_container\"]/div/ul[2]";
     private final String ART_CATEGORY_MENU_ITEM_XPATH_TEMPLATE = ".//li/a[contains(text()[1],'%s')]";
     private final String ART_CATEGORY_SHOW_MORE_BUTTON_XPATH = "//*[@id=\"left_container\"]/div/ul[2]/li[15]/div";
-
+    private final String GLOBAL_SEARCH_INPUT_XPATH = "//*[@id=\"MainSearchForm\"]/div/div[1]/input[3]";
+    private final String GLOBAL_SEARCH_BUTTON_XPATH = "/html/body/div[1]/span[9]/form/div/div[2]/button";
 
     @Step("Click on art category menu item")
     public void clickOnArtCategoryMenuItem(String menuItemName) {
@@ -34,5 +35,15 @@ public class PageObjectMain extends BasePage {
         WebElement showMoreButton = getWebDriver().findElement(By.xpath(ART_CATEGORY_SHOW_MORE_BUTTON_XPATH));
         waitForElementClickable(showMoreButton);
         showMoreButton.click();
+    }
+
+    @Step("Input string to search")
+    public void inputStringToSearch(CharSequence searchString) {
+        WebElement globalSearchInput = getWebDriver().findElement(By.xpath(GLOBAL_SEARCH_INPUT_XPATH));
+        waitForElementClickable(globalSearchInput);
+        globalSearchInput.sendKeys(searchString);
+        WebElement globalSearchButton = getWebDriver().findElement(By.xpath(GLOBAL_SEARCH_BUTTON_XPATH));
+        waitForElementClickable(globalSearchButton);
+        globalSearchButton.click();
     }
 }
