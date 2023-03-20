@@ -28,8 +28,6 @@ public class CatalogPage extends BasePage {
 
     private final String ART_AUTHOR_AND_NAME_XPATH = ".//div[@class=\"ssize\"]";
 
-    private final String ART_LINK_XPATH = ".//a[1]";
-
 
     @Step("Click on genre 'show more' button")
     public void clickOnGenreShowMoreButton() {
@@ -62,8 +60,8 @@ public class CatalogPage extends BasePage {
         Assert.assertTrue(isArtNamePresent);
     }
 
-    @Step("Click on art item")
-    public void clickOnArtItem(String artName) {
+    @Step("Click on art item by name")
+    public void clickOnArtItemByName(String artName) {
         List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
         for (WebElement art : arts) {
             WebElement authorAndName = art.findElement(By.xpath(ART_AUTHOR_AND_NAME_XPATH));
@@ -73,5 +71,13 @@ public class CatalogPage extends BasePage {
                 break;
             }
         }
+    }
+
+    @Step("Click on art item by number")
+    public void clickOnArtItemByNumber(int number) {
+        List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
+        WebElement art = arts.get(number);
+        waitForElementClickable(art);
+        art.click();
     }
 }

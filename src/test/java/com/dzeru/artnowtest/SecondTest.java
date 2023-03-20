@@ -26,7 +26,7 @@ public class SecondTest extends SupportTestConfiguration {
         catalogPage.clickOnGenreShowMoreButton();
         catalogPage.chooseGenre("Городской пейзаж");
         catalogPage.checkArtName("Трамвайный путь");
-        catalogPage.clickOnArtItem("Трамвайный путь");
+        catalogPage.clickOnArtItemByName("Трамвайный путь");
         CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
         catalogItemPage.checkStyle("Реализм");
     }
