@@ -2,6 +2,7 @@ package com.dzeru.artnowtest;
 
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import com.dzeru.artnowtest.listeners.TestFailureListener;
+import com.dzeru.artnowtest.pages.CatalogItemPage;
 import com.dzeru.artnowtest.pages.CatalogPage;
 import com.dzeru.artnowtest.pages.MainPage;
 import org.testng.annotations.Listeners;
@@ -26,5 +27,7 @@ public class SecondTest extends SupportTestConfiguration {
         catalogPage.chooseGenre("Городской пейзаж");
         catalogPage.checkArtName("Трамвайный путь");
         catalogPage.clickOnArtItem("Трамвайный путь");
+        CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
+        catalogItemPage.checkStyle("Реализм");
     }
 }

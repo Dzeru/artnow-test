@@ -70,6 +70,7 @@ public class CatalogPage extends BasePage {
             if (authorAndName.getText().contains(artName)) {
                 waitForElementClickable(authorAndName);
                 authorAndName.click();
+                break;
             }
         }
     }
