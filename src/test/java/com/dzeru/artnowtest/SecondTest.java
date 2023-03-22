@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 public class SecondTest extends SupportTestConfiguration {
 
     @Test
-    public void checkArtNameTramWay() {
+    public void checkArtStyleTramWay() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Вышитые картины");

@@ -44,7 +44,6 @@ public class CatalogPage extends BasePage {
         WebElement applyGenreButton = getWebDriver().findElement(By.xpath(APPLY_GENRE_BUTTON_XPATH));
         waitForElementClickable(applyGenreButton);
         applyGenreButton.click();
-        try { Thread.sleep(5000);} catch(InterruptedException e) { System.out.println("f");}
     }
 
     @Step("Check art name")
