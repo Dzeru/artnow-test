@@ -2,6 +2,7 @@ package com.dzeru.artnowtest.pages;
 
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,5 +30,9 @@ public abstract class BasePage {
     protected void waitForElementClickable(WebElement webElement) {
         log.info("Wait for element clickable for " + SupportTestConfiguration.webDriverWaitTimeout);
         new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    protected void waitForElementToBePresent(By locator) {
+        new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 }

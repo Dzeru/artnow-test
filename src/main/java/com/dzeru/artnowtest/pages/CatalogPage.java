@@ -24,6 +24,7 @@ public class CatalogPage extends BasePage {
 
     private final String APPLY_GENRE_BUTTON_XPATH = "//*[@id=\"applymsg\"]";
 
+    private final String ART_CONTAINER_XPATH = "//*[@id=\"sa_container\"]";
     private final String ART_LIST_XPATH = "//*[@id=\"sa_container\"]/div[@class=\"post\"]";
 
     private final String ART_AUTHOR_AND_NAME_XPATH = ".//div[@class=\"ssize\"]";
@@ -47,6 +48,7 @@ public class CatalogPage extends BasePage {
 
     @Step("Check catalog item name")
     public void checkCatalogItemName(String catalogItemName) {
+        waitForElementToBePresent(By.xpath(ART_LIST_XPATH));
         List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
         boolean isCatalogItemNamePresent = false;
         for (WebElement art : arts) {

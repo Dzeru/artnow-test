@@ -1,4 +1,4 @@
-package com.dzeru.artnowtest;
+package com.dzeru.artnowtest.tests;
 
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import com.dzeru.artnowtest.listeners.TestFailureListener;

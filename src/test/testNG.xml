@@ -2,11 +2,11 @@
 <suite name="suite" parallel="tests" thread-count="5">
     <test name="First">
         <classes>
-            <class name="com.dzeru.artnowtest.FirstTest"/>
-            <class name="com.dzeru.artnowtest.SecondTest"/>
-            <class name="com.dzeru.artnowtest.ThirdTest"/>
-            <class name="com.dzeru.artnowtest.FourthTest"/>
-            <class name="com.dzeru.artnowtest.FifthTest"/>
+            <class name="com.dzeru.artnowtest.tests.FirstTest"/>
+            <class name="com.dzeru.artnowtest.tests.SecondTest"/>
+            <class name="com.dzeru.artnowtest.tests.ThirdTest"/>
+            <class name="com.dzeru.artnowtest.tests.FourthTest"/>
+            <class name="com.dzeru.artnowtest.tests.FifthTest"/>
         </classes>
     </test>
 </suite>

@@ -23,6 +23,7 @@ public class FavoritePage extends BasePage {
 
     @Step("Check if item is present in favorites")
     public void isItemPresentInFavorites(String name, String author) {
+        waitForElementToBePresent(By.xpath(FAVORITE_ITEM_XPATH));
         List<WebElement> favoriteItems = getWebDriver().findElements(By.xpath(FAVORITE_ITEM_XPATH));
         var isItemPresent = false;
         for (WebElement favoriteItem : favoriteItems) {

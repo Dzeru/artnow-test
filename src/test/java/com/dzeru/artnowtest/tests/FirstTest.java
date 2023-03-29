@@ -1,24 +1,23 @@
-package com.dzeru.artnowtest;
+package com.dzeru.artnowtest.tests;
 
-import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import com.dzeru.artnowtest.listeners.TestFailureListener;
-import com.dzeru.artnowtest.pages.CatalogItemPage;
-import com.dzeru.artnowtest.pages.CatalogPage;
 import com.dzeru.artnowtest.pages.MainPage;
+import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
+import com.dzeru.artnowtest.pages.CatalogPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /**
- * 2.2
+ * 2.1
  * Перейти в "Вышитые картины", произвести поиск по жанру
- * "Городской пейзаж", открыть подробности картины "Трамвайный путь",
- * проверить, что стиль картины "Реализм".
+ * "Городской пейзаж", проверить, что картина "Трамвайный путь"
+ * присутствует в выдаче.
  */
 @Listeners({TestFailureListener.class})
-public class SecondTest extends SupportTestConfiguration {
+public class FirstTest extends SupportTestConfiguration {
 
     @Test
-    public void checkArtStyleTramWay() {
+    public void checkArtNameTramWay() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Вышитые картины");
@@ -26,8 +25,5 @@ public class SecondTest extends SupportTestConfiguration {
         catalogPage.clickOnGenreShowMoreButton();
         catalogPage.chooseGenre("Городской пейзаж");
         catalogPage.checkCatalogItemName("Трамвайный путь");
-        catalogPage.clickOnCatalogItemByName("Трамвайный путь");
-        CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
-        catalogItemPage.checkStyle("Реализм");
     }
 }
