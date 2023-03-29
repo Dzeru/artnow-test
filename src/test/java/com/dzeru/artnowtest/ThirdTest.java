@@ -24,7 +24,7 @@ public class ThirdTest extends SupportTestConfiguration {
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Батик");
         CatalogPage catalogPage = new CatalogPage(driver);
-        catalogPage.clickOnArtItemByNumber(1);
+        catalogPage.clickOnCatalogItemByNumber(1);
         CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
         CatalogItem catalogItem = catalogItemPage.addToFavorite();
         catalogItemPage.checkFavoriteCounter(1);

@@ -1,8 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite">
+<suite name="suite" parallel="tests" thread-count="5">
     <test name="First">
         <classes>
             <class name="com.dzeru.artnowtest.FirstTest"/>
+            <class name="com.dzeru.artnowtest.SecondTest"/>
+            <class name="com.dzeru.artnowtest.ThirdTest"/>
+            <class name="com.dzeru.artnowtest.FourthTest"/>
+            <class name="com.dzeru.artnowtest.FifthTest"/>
         </classes>
     </test>
 </suite>

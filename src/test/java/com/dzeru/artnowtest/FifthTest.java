@@ -24,14 +24,14 @@ public class FifthTest extends SupportTestConfiguration {
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Ювелирное искусство");
         CatalogPage catalogPage = new CatalogPage(driver);
-        catalogPage.clickOnArtItemByNumber(1);
+        catalogPage.clickOnCatalogItemByNumber(1);
         CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
         String catalogItemName = catalogItemPage.getCatalogItemName();
         String catalogItemAuthor = catalogItemPage.getCatalogItemAuthor();
         String catalogItemPrice = catalogItemPage.getCatalogItemPrice();
         catalogItemPage.clickOnAddToCartButton();
         catalogItemPage.clickOnGoToCardButton();
-        CartPage cartPage = new CartPage();
+        CartPage cartPage = new CartPage(driver);
         cartPage.checkCartItemName(catalogItemName);
         cartPage.checkCartItemAuthor(catalogItemAuthor);
         cartPage.checkCartItemPrice(catalogItemPrice);

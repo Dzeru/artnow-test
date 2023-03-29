@@ -28,7 +28,6 @@ public class CatalogPage extends BasePage {
 
     private final String ART_AUTHOR_AND_NAME_XPATH = ".//div[@class=\"ssize\"]";
 
-
     @Step("Click on genre 'show more' button")
     public void clickOnGenreShowMoreButton() {
         WebElement showMoreButton = getWebDriver().findElement(By.xpath(GENRE_SHOW_MORE_BUTTON_XPATH));
@@ -46,25 +45,25 @@ public class CatalogPage extends BasePage {
         applyGenreButton.click();
     }
 
-    @Step("Check art name")
-    public void checkArtName(String artName) {
+    @Step("Check catalog item name")
+    public void checkCatalogItemName(String catalogItemName) {
         List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
-        boolean isArtNamePresent = false;
+        boolean isCatalogItemNamePresent = false;
         for (WebElement art : arts) {
             WebElement authorAndName = art.findElement(By.xpath(ART_AUTHOR_AND_NAME_XPATH));
-            if (authorAndName.getText().contains(artName)) {
-                isArtNamePresent = true;
+            if (authorAndName.getText().contains(catalogItemName)) {
+                isCatalogItemNamePresent = true;
             }
         }
-        Assert.assertTrue(isArtNamePresent);
+        Assert.assertTrue(isCatalogItemNamePresent);
     }
 
-    @Step("Click on art item by name")
-    public void clickOnArtItemByName(String artName) {
+    @Step("Click on catalog item by name")
+    public void clickOnCatalogItemByName(String catalogItemName) {
         List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
         for (WebElement art : arts) {
             WebElement authorAndName = art.findElement(By.xpath(ART_AUTHOR_AND_NAME_XPATH));
-            if (authorAndName.getText().contains(artName)) {
+            if (authorAndName.getText().contains(catalogItemName)) {
                 waitForElementClickable(authorAndName);
                 authorAndName.click();
                 break;
@@ -72,8 +71,8 @@ public class CatalogPage extends BasePage {
         }
     }
 
-    @Step("Click on art item by number")
-    public void clickOnArtItemByNumber(int number) {
+    @Step("Click on catalog item by number")
+    public void clickOnCatalogItemByNumber(int number) {
         List<WebElement> arts = getWebDriver().findElements(By.xpath(ART_LIST_XPATH));
         WebElement art = arts.get(number);
         waitForElementClickable(art);

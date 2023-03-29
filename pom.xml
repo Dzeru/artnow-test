@@ -24,6 +24,7 @@
         <org.slf4j.slf4j-simple.version>2.0.6</org.slf4j.slf4j-simple.version>
         <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M9</org.apache.maven.plugins.maven-surefire-plugin.version>
         <io.qameta.allure.allure-maven.version>2.12.0</io.qameta.allure.allure-maven.version>
+        <org.projectlombok.lombok.version>1.18.26</org.projectlombok.lombok.version>
     </properties>
 
     <dependencies>
@@ -70,6 +71,13 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-maven</artifactId>
             <version>${io.qameta.allure.allure-maven.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

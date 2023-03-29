@@ -24,6 +24,6 @@ public class FirstTest extends SupportTestConfiguration {
         CatalogPage catalogPage = new CatalogPage(driver);
         catalogPage.clickOnGenreShowMoreButton();
         catalogPage.chooseGenre("Городской пейзаж");
-        catalogPage.checkArtName("Трамвайный путь");
+        catalogPage.checkCatalogItemName("Трамвайный путь");
     }
 }

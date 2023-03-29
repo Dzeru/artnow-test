@@ -1,11 +1,9 @@
 package com.dzeru.artnowtest;
 
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
-import com.dzeru.artnowtest.dto.CatalogItem;
 import com.dzeru.artnowtest.listeners.TestFailureListener;
 import com.dzeru.artnowtest.pages.CatalogItemPage;
 import com.dzeru.artnowtest.pages.CatalogPage;
-import com.dzeru.artnowtest.pages.FavoritePage;
 import com.dzeru.artnowtest.pages.MainPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -22,7 +20,7 @@ public class FourthTest extends SupportTestConfiguration {
         MainPage mainPage = new MainPage(driver);
         mainPage.inputStringToSearch("Жираф");
         CatalogPage catalogPage = new CatalogPage(driver);
-        catalogPage.clickOnArtItemByNumber(1);
+        catalogPage.clickOnCatalogItemByNumber(1);
         CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
         catalogItemPage.checkCatalogItemNameContainsIgnoreCase("Жираф");
     }

@@ -15,11 +15,10 @@ public class CartPage extends BasePage {
         super();
     }
 
-    private String CART_ITEM_NAME_XPATH = "//*[@id=\"cart1100221\"]/div[3]/div[1]/a";
-    private String CART_ITEM_AUTHOR_XPATH = "//*[@id=\"cart1100221\"]/div[3]/div[3]/a";
-    private String CART_ITEM_PRICE_XPATH = "//*[@id=\"cart1100221\"]/div[3]/div[5]/div[2]";
+    private final String CART_ITEM_NAME_XPATH = "//*[starts-with(@id,\"cart\")]/div[3]/div[1]/a";
+    private final String CART_ITEM_AUTHOR_XPATH = "//*[starts-with(@id,\"cart\")]/div[3]/div[3]/a";
+    private final String CART_ITEM_PRICE_XPATH = "//*[starts-with(@id,\"cart\")]/div[3]/div[5]/div[2]";
 
-    // TODO fix
     public void checkCartItemName(String name) {
         WebElement cartItemName = getWebDriver().findElement(By.xpath(CART_ITEM_NAME_XPATH));
         Assert.assertEquals(cartItemName.getText(), name);
