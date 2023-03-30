@@ -5,6 +5,7 @@ import com.dzeru.artnowtest.listeners.TestFailureListener;
 import com.dzeru.artnowtest.pages.CatalogItemPage;
 import com.dzeru.artnowtest.pages.CatalogPage;
 import com.dzeru.artnowtest.pages.MainPage;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -14,11 +15,13 @@ import org.testng.annotations.Test;
  * "Городской пейзаж", открыть подробности картины "Трамвайный путь",
  * проверить, что стиль картины "Реализм".
  */
+@Log4j2
 @Listeners({TestFailureListener.class})
 public class SecondTest extends SupportTestConfiguration {
 
-    @Test
+    @Test(testName = "Check if art 'Трамвайный путь' has 'Реализм' style")
     public void checkArtStyleTramWay() {
+        log.info("Start the 2nd test checkArtStyleTramWay");
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Вышитые картины");
@@ -29,5 +32,6 @@ public class SecondTest extends SupportTestConfiguration {
         catalogPage.clickOnCatalogItemByName("Трамвайный путь");
         CatalogItemPage catalogItemPage = new CatalogItemPage(driver);
         catalogItemPage.checkStyle("Реализм");
+        log.info("Finish the 2nd test checkArtStyleTramWay");
     }
 }

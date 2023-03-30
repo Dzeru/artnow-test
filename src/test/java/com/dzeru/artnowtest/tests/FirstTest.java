@@ -4,6 +4,7 @@ import com.dzeru.artnowtest.listeners.TestFailureListener;
 import com.dzeru.artnowtest.pages.MainPage;
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import com.dzeru.artnowtest.pages.CatalogPage;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -13,11 +14,13 @@ import org.testng.annotations.Test;
  * "Городской пейзаж", проверить, что картина "Трамвайный путь"
  * присутствует в выдаче.
  */
+@Log4j2
 @Listeners({TestFailureListener.class})
 public class FirstTest extends SupportTestConfiguration {
 
-    @Test
+    @Test(testName = "Check art name with the name 'Трамвайный путь'")
     public void checkArtNameTramWay() {
+        log.info("Start the 1st test checkArtNameTramWay");
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Вышитые картины");
@@ -25,5 +28,6 @@ public class FirstTest extends SupportTestConfiguration {
         catalogPage.clickOnGenreShowMoreButton();
         catalogPage.chooseGenre("Городской пейзаж");
         catalogPage.checkCatalogItemName("Трамвайный путь");
+        log.info("Finish the 1st test checkArtNameTramWay");
     }
 }

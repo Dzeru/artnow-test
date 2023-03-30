@@ -1,14 +1,14 @@
 package com.dzeru.artnowtest.pages;
 
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-@Slf4j
+@Log4j2
 public abstract class BasePage {
     private WebDriver webDriver;
 
@@ -23,12 +23,12 @@ public abstract class BasePage {
     }
 
     protected void waitForElementVisible(WebElement webElement) {
-        log.info("Wait for element visible for " + SupportTestConfiguration.webDriverWaitTimeout);
+        log.debug("Wait for element visible for " + SupportTestConfiguration.webDriverWaitTimeout);
         new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void waitForElementClickable(WebElement webElement) {
-        log.info("Wait for element clickable for " + SupportTestConfiguration.webDriverWaitTimeout);
+        log.debug("Wait for element clickable for " + SupportTestConfiguration.webDriverWaitTimeout);
         new WebDriverWait(webDriver, SupportTestConfiguration.webDriverWaitTimeout).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 

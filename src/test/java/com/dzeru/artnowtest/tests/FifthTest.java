@@ -6,6 +6,7 @@ import com.dzeru.artnowtest.pages.CartPage;
 import com.dzeru.artnowtest.pages.CatalogItemPage;
 import com.dzeru.artnowtest.pages.CatalogPage;
 import com.dzeru.artnowtest.pages.MainPage;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -15,11 +16,13 @@ import org.testng.annotations.Test;
  * корзину, проверить, что выбранный товар находится в корзине, стоимость
  * товара не изменилась.
  */
+@Log4j2
 @Listeners({TestFailureListener.class})
 public class FifthTest extends SupportTestConfiguration {
 
-    @Test
+    @Test(testName = "Add 1st item to cart")
     public void addToCart() {
+        log.info("Start 5th test addToCart");
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnArtCategoryShowMoreButton();
         mainPage.clickOnArtCategoryMenuItem("Ювелирное искусство");
@@ -35,5 +38,6 @@ public class FifthTest extends SupportTestConfiguration {
         cartPage.checkCartItemName(catalogItemName);
         cartPage.checkCartItemAuthor(catalogItemAuthor);
         cartPage.checkCartItemPrice(catalogItemPrice);
+        log.info("Finish 5th test addToCart");
     }
 }

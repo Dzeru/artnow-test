@@ -2,7 +2,7 @@ package com.dzeru.artnowtest.configuration;
 
 import com.dzeru.artnowtest.listeners.WebDriverEventListener;
 import com.dzeru.artnowtest.utils.Browser;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +17,7 @@ import java.util.Properties;
 
 import static com.dzeru.artnowtest.utils.Constants.*;
 
-@Slf4j
+@Log4j2
 public abstract class SupportTestConfiguration {
 
     public static WebDriver driver;

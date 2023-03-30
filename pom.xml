@@ -21,11 +21,10 @@
         <io.qameta.allure.allure-java-commons.version>2.21.0</io.qameta.allure.allure-java-commons.version>
         <org.aspectj.aspectjweaver.version>1.9.19</org.aspectj.aspectjweaver.version>
         <commons-io.commons-io.version>2.11.0</commons-io.commons-io.version>
-        <org.slf4j.slf4j-simple.version>2.0.6</org.slf4j.slf4j-simple.version>
         <org.apache.maven.plugins.maven-surefire-plugin.version>3.0.0-M9</org.apache.maven.plugins.maven-surefire-plugin.version>
         <io.qameta.allure.allure-maven.version>2.12.0</io.qameta.allure.allure-maven.version>
         <org.projectlombok.lombok.version>1.18.26</org.projectlombok.lombok.version>
-        <org.slf4j.slf4j-simple.version>2.0.7</org.slf4j.slf4j-simple.version>
+        <org.apache.logging.log4j.log4j-core.version>2.19.0</org.apache.logging.log4j.log4j-core.version>
     </properties>
 
     <dependencies>
@@ -61,17 +60,17 @@
             <scope>compile</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>${org.slf4j.slf4j-simple.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.4.6</version>
-<!--            <scope>test</scope>-->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${org.apache.logging.log4j.log4j-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${org.apache.logging.log4j.log4j-core.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
