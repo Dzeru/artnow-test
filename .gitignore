@@ -2,3 +2,5 @@ target/
 .idea/
 allure-results/
 test-output/
+artnow-test.log
+.allure/

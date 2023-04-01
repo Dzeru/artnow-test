@@ -22,27 +22,39 @@ public class MainPage extends BasePage {
     private final String GLOBAL_SEARCH_BUTTON_XPATH = "/html/body/div[1]/span[9]/form/div/div[2]/button";
 
     @Step("Click on art category menu item")
-    public void clickOnArtCategoryMenuItem(String menuItemName) {
+    public MainPage clickOnArtCategoryMenuItem(String menuItemName) {
         WebElement menuItemList = getWebDriver().findElement(By.xpath(ART_CATEGORY_MENU_ITEM_LIST_XPATH));
         WebElement menuItem = menuItemList.findElement(By.xpath(String.format(ART_CATEGORY_MENU_ITEM_XPATH_TEMPLATE, menuItemName)));
         waitForElementClickable(menuItem);
         menuItem.click();
+        return this;
+    }
+
+    @Step("WRONG! Click on art category menu item")
+    public MainPage clickOnArtCategoryMenuItemWrong(String menuItemName) {
+        WebElement menuItemList = getWebDriver().findElement(By.xpath("//*[@id=\"leftt_container\"]/div/ul[2]"));
+        WebElement menuItem = menuItemList.findElement(By.xpath(String.format(ART_CATEGORY_MENU_ITEM_XPATH_TEMPLATE, menuItemName)));
+        waitForElementClickable(menuItem);
+        menuItem.click();
+        return this;
     }
 
     @Step("Click on art category 'show more' button")
-    public void clickOnArtCategoryShowMoreButton() {
+    public MainPage clickOnArtCategoryShowMoreButton() {
         WebElement showMoreButton = getWebDriver().findElement(By.xpath(ART_CATEGORY_SHOW_MORE_BUTTON_XPATH));
         waitForElementClickable(showMoreButton);
         showMoreButton.click();
+        return this;
     }
 
     @Step("Input string to search")
-    public void inputStringToSearch(CharSequence searchString) {
+    public MainPage inputStringToSearch(CharSequence searchString) {
         WebElement globalSearchInput = getWebDriver().findElement(By.xpath(GLOBAL_SEARCH_INPUT_XPATH));
         waitForElementClickable(globalSearchInput);
         globalSearchInput.sendKeys(searchString);
         WebElement globalSearchButton = getWebDriver().findElement(By.xpath(GLOBAL_SEARCH_BUTTON_XPATH));
         waitForElementClickable(globalSearchButton);
         globalSearchButton.click();
+        return this;
     }
 }

@@ -1,6 +1,5 @@
 package com.dzeru.artnowtest.tests;
 
-import com.dzeru.artnowtest.listeners.TestFailureListener;
 import com.dzeru.artnowtest.pages.MainPage;
 import com.dzeru.artnowtest.configuration.SupportTestConfiguration;
 import com.dzeru.artnowtest.pages.CatalogPage;
@@ -15,19 +14,31 @@ import org.testng.annotations.Test;
  * присутствует в выдаче.
  */
 @Log4j2
-@Listeners({TestFailureListener.class})
 public class FirstTest extends SupportTestConfiguration {
 
     @Test(testName = "Check art name with the name 'Трамвайный путь'")
     public void checkArtNameTramWay() {
         log.info("Start the 1st test checkArtNameTramWay");
-        MainPage mainPage = new MainPage(driver);
-        mainPage.clickOnArtCategoryShowMoreButton();
-        mainPage.clickOnArtCategoryMenuItem("Вышитые картины");
-        CatalogPage catalogPage = new CatalogPage(driver);
-        catalogPage.clickOnGenreShowMoreButton();
-        catalogPage.chooseGenre("Городской пейзаж");
-        catalogPage.checkCatalogItemName("Трамвайный путь");
+        new MainPage(driver)
+                .clickOnArtCategoryShowMoreButton()
+                .clickOnArtCategoryMenuItem("Вышитые картины");
+        new CatalogPage(driver)
+                .clickOnGenreShowMoreButton()
+                .chooseGenre("Городской пейзаж")
+                .checkCatalogItemName("Трамвайный путь");
         log.info("Finish the 1st test checkArtNameTramWay");
+    }
+
+    @Test(testName = "Check art name with the name 'Трамвайный путь' but make it failed")
+    public void checkArtNameTramWayToBeFailed() {
+        log.info("Start the 1st test checkArtNameTramWayToBeFailed");
+        new MainPage(driver)
+                .clickOnArtCategoryShowMoreButton()
+                .clickOnArtCategoryMenuItem("Вышитые картины");
+        new CatalogPage(driver)
+                .clickOnGenreShowMoreButton()
+                .chooseGenre("Городской пейзаж")
+                .checkCatalogItemName("Трамвайная дорога");
+        log.info("Finish the 1st test checkArtNameTramWayToBeFailed");
     }
 }

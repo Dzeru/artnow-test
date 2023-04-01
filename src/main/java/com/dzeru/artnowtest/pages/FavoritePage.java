@@ -1,6 +1,5 @@
 package com.dzeru.artnowtest.pages;
 
-import com.dzeru.artnowtest.dto.CatalogItem;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +21,7 @@ public class FavoritePage extends BasePage {
     private final String ART_AUTHOR_AND_NAME_XPATH = ".//div[@class=\"ssize\"]";
 
     @Step("Check if item is present in favorites")
-    public void isItemPresentInFavorites(String name, String author) {
+    public FavoritePage isItemPresentInFavorites(String name, String author) {
         waitForElementToBePresent(By.xpath(FAVORITE_ITEM_XPATH));
         List<WebElement> favoriteItems = getWebDriver().findElements(By.xpath(FAVORITE_ITEM_XPATH));
         var isItemPresent = false;
@@ -34,6 +33,7 @@ public class FavoritePage extends BasePage {
             }
         }
         Assert.assertTrue(isItemPresent);
+        return this;
     }
 
 }

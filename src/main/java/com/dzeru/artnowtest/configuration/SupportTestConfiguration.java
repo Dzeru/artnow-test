@@ -1,6 +1,5 @@
 package com.dzeru.artnowtest.configuration;
 
-import com.dzeru.artnowtest.listeners.WebDriverEventListener;
 import com.dzeru.artnowtest.utils.Browser;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +40,8 @@ public abstract class SupportTestConfiguration {
     @BeforeMethod
     public void setUp() throws IllegalArgumentException {
         log.info("Start setup");
-        var browser = Browser.valueOf(properties.getProperty("artnow-test.browser"));
+        var systemBrowser = System.getProperty("artnow-test.browser");
+        var browser = null == systemBrowser || systemBrowser.isBlank() ? Browser.valueOf(properties.getProperty("artnow-test.browser")) : Browser.valueOf(systemBrowser);
         if (browser.equals(Browser.CHROME)) {
             System.setProperty(CHROME_DRIVER_PROPERTY, properties.getProperty("artnow-test.driver.path.chrome"));
             ChromeOptions chromeOptions = new ChromeOptions();
@@ -56,9 +56,6 @@ public abstract class SupportTestConfiguration {
         }
 
         driver.manage().window().maximize();
-        // TODO listener
-        WebDriverEventListener eventListener = new WebDriverEventListener();
-        //driver.register(eventListener);
         webDriverWaitTimeout = Duration.parse(properties.getProperty("artnow-test.webdriver-wait-timeout"));
         webDriverWait = new WebDriverWait(driver, webDriverWaitTimeout);
         var baseUrl = properties.getProperty("artnow-test.base-url");
